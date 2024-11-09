@@ -1,8 +1,7 @@
 
 <head>
-  <meta charset="UTF-8">
   <title>Smart Refrigerator Display</title>
-  <link rel="stylesheet" href="style.css.css">
+  <link rel="stylesheet" href="fridge.css.css">
 </head>
 <body>
   <div id="fridge-display">
@@ -87,25 +86,27 @@
     let tempInCelsius = true;
 
     const weatherDiv = document.getElementById("weather");
-    const weatherDisplay = document.getElementById("weather-display");
-
     const timerDiv = document.getElementById("timer");
-    const timerDisplay = document.getElementById("timer-display");
-    let timerSeconds = 60;
-    let timer;
-
     const shoppingListDiv = document.getElementById("shopping-list");
-    const shoppingItems = document.getElementById("shopping-items");
-    const addItemInput = document.getElementById("add-item");
-    const addItemButton = document.getElementById("add-item-button");
-
     const tvDiv = document.getElementById("tv-display");
-    const tvButton = document.getElementById("tv-on");
-
+    const browserDiv = document.getElementById("browser-display");
     const musicDiv = document.getElementById("music-player");
-    const playMusicButton = document.getElementById("play-music");
 
-    const modules = [temperatureDiv, weatherDiv, timerDiv, shoppingListDiv, tvDiv, musicDiv];
+    const footerButtons = {
+      "temperature-button": temperatureDiv,
+      "weather-button": weatherDiv,
+      "timer-button": timerDiv,
+      "shopping-list-button": shoppingListDiv,
+      "tv-button": tvDiv,
+      "browser-button": browserDiv,
+      "music-button": musicDiv
+    };
+
+    Object.keys(footerButtons).forEach(buttonId => {
+      document.getElementById(buttonId).addEventListener("click", () => {
+        showModule(footerButtons[buttonId]);
+      });
+    });
 
     function updateClock() {
       const now = new Date();
@@ -115,16 +116,16 @@
     setInterval(updateClock, 1000);
 
     function showModule(module) {
-      modules.forEach(m => m.classList.add('hidden'));
+      Object.values(footerButtons).forEach(mod => mod.classList.add('hidden'));
       module.classList.remove('hidden');
     }
 
     onButton.addEventListener("click", () => {
-      showModule(null);
+      Object.values(footerButtons).forEach(m => m.classList.remove('hidden'));
     });
 
     offButton.addEventListener("click", () => {
-      modules.forEach(m => m.classList.add('hidden'));
+      Object.values(footerButtons).forEach(m => m.classList.add('hidden'));
     });
 
     tempToggle.addEventListener("click", () => {
@@ -145,44 +146,6 @@
     function updateTemperatureDisplay() {
       tempDisplay.textContent = `Fridge: ${tempInCelsius ? tempCelsius + '°C' : (tempCelsius * 9/5 + 32).toFixed(1) + '°F'}`;
     }
-
-    timerDiv.querySelector("#start-timer").addEventListener("click", () => {
-      clearInterval(timer);
-      timer = setInterval(() => {
-        timerSeconds--;
-        timerDisplay.textContent = `00:${String(timerSeconds).padStart(2, '0')}`;
-        if (timerSeconds <= 0) {
-          clearInterval(timer);
-          alert("Timer is up!");
-        }
-      }, 1000);
-    });
-
-    timerDiv.querySelector("#reset-timer").addEventListener("click", () => {
-      clearInterval(timer);
-      timerSeconds = 60;
-      timerDisplay.textContent = "00:60";
-    });
-
-    addItemButton.addEventListener("click", () => {
-      const newItem = addItemInput.value.trim();
-      if (newItem) {
-        const li = document.createElement("li");
-        li.textContent = newItem;
-        shoppingItems.appendChild(li);
-        addItemInput.value = "";
-      }
-    });
-
-    tvButton.addEventListener("click", () => {
-      const tvSound = new Audio("tv-sound.mp3");
-      tvSound.play();
-    });
-
-    playMusicButton.addEventListener("click", () => {
-      const musicSound = new Audio("music.mp3");
-      musicSound.play();
-    });
 
     updateClock();
   </script>
