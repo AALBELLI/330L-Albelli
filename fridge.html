@@ -88,7 +88,61 @@
       <button onclick="showModule('music')">Music Player</button>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script>
+    const clockElement = document.getElementById("clock");
+    const onButton = document.getElementById("on-button");
+    const offButton = document.getElementById("off-button");
+    const mainContent = document.getElementById("main-content");
+    const temperatureButton = document.getElementById("temperature-button");
+    const fridgeButton = document.getElementById("fridge-button");
+    const tvButton = document.getElementById("tv-button");
+    const browserButton = document.getElementById("browser-button");
+
+    const temperatureDiv = document.getElementById("temperature");
+    const fridgeDiv = document.getElementById("fridge-content");
+    const tvDiv = document.getElementById("tv-display");
+    const browserDiv = document.getElementById("browser-display");
+
+    function updateClock() {
+      const now = new Date();
+      clockElement.textContent = now.toLocaleTimeString();
+    }
+
+    setInterval(updateClock, 1000);
+
+    function showModule(module) {
+      const modules = [temperatureDiv, fridgeDiv, tvDiv, browserDiv];
+      modules.forEach(m => m.classList.add('hidden'));
+      if (module) module.classList.remove('hidden');
+    }
+
+    onButton.addEventListener("click", () => {
+      mainContent.style.display = "flex";
+      showModule(null);  //clear display except for clock
+    });
+
+    offButton.addEventListener("click", () => {
+      mainContent.style.display = "none";  //hiding everything except the clock
+    });
+
+    temperatureButton.addEventListener("click", () => {
+      showModule(temperatureDiv);  
+    });
+
+    fridgeButton.addEventListener("click", () => {
+      showModule(fridgeDiv);  
+    });
+
+    tvButton.addEventListener("click", () => {
+      showModule(tvDiv); 
+    });
+
+    browserButton.addEventListener("click", () => {
+      showModule(browserDiv); 
+    });
+
+    updateClock();
+  </script>
 </body>
 </html>
 
