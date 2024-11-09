@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Refrigerator Display</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="fridge-display">
+    <div class="header">
+      <div id="clock">00:00:00</div>
+      <div>
+        <button id="on-button">ON</button>
+        <button id="off-button">OFF</button>
+      </div>
+    </div>
+
+    <div id="main-content">
+      <div id="temperature" class="module hidden">
+        <h2>Temperature</h2>
+        <p id="temp-value">Fridge: 3C | Freezer: -18C</p>
+        <button id="temp-toggle">Switch to F</button>
+        <button id="increase-temp">Increase</button>
+        <button id="decrease-temp">Decrease</button>
+      </div>
+      <div id="fridge-content" class="module hidden">
+        <h2>Inside Fridge</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrd8WTz3Tm5ry_HoIgEhghbgjLytXbRpP4VA&s" alt="Fridge Contents">
+      </div>
+      <div id="tv-display" class="module hidden">
+        <h2>TV-BreakingBad</h2>
+        <img src="https://occ-0-8407-2219.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABb6h5K7kF5r1_x9RDFQ6lKLPfcAqtIIRDLoLbAj3Cl6_rPPA61zj31Wlq8KGanlfEX_CdBZl_XSh64f3VIDcX7YSI00-RGp4ifur.jpg?r=9ff" alt="TV Screen">
+        <audio id="tv-sound" src="tv-sound.mp3"></audio>
+      </div>
+      <div id="browser-display" class="module hidden">
+        <h2>Browser</h2>
+        <img src="https://judinc.com/blog/wp-content/uploads/2019/10/google-homepage-2005.png" alt="Browser Screen">
+      </div>
+      <div id="weather-display" class="module hidden">
+        <h2>Weather Forecast</h2>
+        <p>25°C, Sunny</p>
+      </div>
+      <div id="timer-display" class="module hidden">
+        <h2>Minute Timer</h2>
+        <button id="start-timer">Start Timer</button>
+        <p id="timer-status">Time remaining: 00:00</p>
+        <audio id="timer-alarm" src="alarm-sound.mp3"></audio>
+      </div>
+      <div id="shopping-list" class="module hidden">
+        <h2>Shopping List</h2>
+        <ul id="list-items">
+          <li>Milk</li>
+          <li>Eggs</li>
+          <li>Butter</li>
+          <li>Cheese</li>
+          <li>Vegetables</li>
+        </ul>
+        <input type="text" id="add-item" placeholder="Add new item">
+        <button id="add-item-button">Add Item</button>
+      </div>
+    </div>
+
+    <div id="footer">
+      <button id="temperature-button">Temperature</button>
+      <button id="fridge-button">Fridge</button>
+      <button id="tv-button">TV</button>
+      <button id="browser-button">Browser</button>
+      <button id="weather-button">Weather</button>
+      <button id="timer-button">Timer</button>
+      <button id="shopping-button">Shopping List</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
