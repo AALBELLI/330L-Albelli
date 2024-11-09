@@ -6,11 +6,11 @@ body {
 
 #fridge-display {
   width: 1200px;
-  height: 700px;
+  height: 800px;
   background-color: #444;
   border-radius: 15px;
   margin: 20px auto;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
   position: relative;
 }
 
@@ -31,12 +31,13 @@ body {
 }
 
 #main-content {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  height: calc(100% - 100px);
+  height: calc(100% - 150px);
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .module {
@@ -44,28 +45,41 @@ body {
   border-radius: 10px;
   padding: 15px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-
-.module img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 320px;
+  height: 220px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
 }
 
 .module h2 {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#temp-display, #weather-display, #timer-display, #shopping-items {
+  font-size: 20px;
+  color: #333;
+}
+
+#temp-toggle, #temp-increase, #temp-decrease, #start-timer, #reset-timer, #add-item-button {
+  margin: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
   border-radius: 5px;
-  font-size: 16px;
+  cursor: pointer;
+  background-color: #666;
+  color: white;
+}
+
+#temp-toggle:hover, #temp-increase:hover, #temp-decrease:hover, #start-timer:hover, 
+#reset-timer:hover, #add-item-button:hover {
+  background-color: #888;
 }
 
 #footer {
@@ -80,22 +94,68 @@ body {
 
 #footer button {
   padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #555;
+  color: white;
+}
+
+#footer button:hover {
+  background-color: #777;
+}
+
+#on-button, #off-button {
+  padding: 10px 20px;
   font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #666;
+  color: white;
+}
+
+#on-button {
+  background-color: green;
+}
+
+#off-button {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+#shopping-items {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+}
+
+#add-item {
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+#play-music, #tv-on {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #333;
+  color: white;
   border-radius: 5px;
   border: none;
   cursor: pointer;
 }
 
-#on-button {
-  background-color: green;
-  color: white;
-}
-
-#off-button {
-  background-color: red;
-  color: white;
-}
-
-.hidden {
-  display: none;
+#play-music:hover, #tv-on:hover {
+  background-color: #555;
 }
