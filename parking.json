@@ -1,0 +1,144 @@
+{
+  "parkingLots": [
+    {
+      "name": "Lot Upper Fulton",
+      "mapFile": "mapUpperFulton.jpg",
+      "totalSpaces": 120,
+      "comments": "Across the bridge, close to Steelplant.",
+      "location": "East Campus",
+      "operationalHours": "6 AM - 11 PM",
+      "security": "24/7 monitored",
+      "spaces": [
+        {
+          "spaceID": 1,
+          "type": "Student",
+          "status": "Available",
+          "lastFilledDateTime": null,
+          "reservedDateTime": "2024-11-26 10:55:00"
+        },
+        {
+          "spaceID": 2,
+          "type": "Faculty/Staff",
+          "status": "Filled",
+          "lastFilledDateTime": "2024-11-24 08:45:00",
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 3,
+          "type": "Handicap",
+          "status": "Reserved",
+          "lastFilledDateTime": null,
+          "reservedDateTime": "2024-11-25 10:00:00"
+        },
+        {
+          "spaceID": 4,
+          "type": "Student",
+          "status": "Available",
+          "lastFilledDateTime": null,
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 5,
+          "type": "Faculty/Staff",
+          "status": "Filled",
+          "lastFilledDateTime": "2024-11-24 09:35:00",
+          "reservedDateTime": "2024-11-27 11:30:00"
+        },
+        {
+          "spaceID": 6,
+          "type": "Handicap",
+          "status": "Available",
+          "lastFilledDateTime": null,
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 7,
+          "type": "Student",
+          "status": "Available",
+          "lastFilledDateTime": null,
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 8,
+          "type": "Faculty/Staff",
+          "status": "Reserved",
+          "lastFilledDateTime": null,
+          "reservedDateTime": "2024-11-25 08:32:30"
+        },
+        {
+          "spaceID": 9,
+          "type": "Student",
+          "status": "Filled",
+          "lastFilledDateTime": "2024-11-24 10:49:00",
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 10,
+          "type": "Handicap",
+          "status": "Available",
+          "lastFilledDateTime": null,
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 11,
+          "type": "Student",
+          "status": "Filled",
+          "lastFilledDateTime": "2024-11-24 11:15:10",
+          "reservedDateTime": null
+        },
+        {
+          "spaceID": 12,
+          "type": "Faculty/Staff",
+          "status": "Available",
+          "lastFilledDateTime": null,
+          "reservedDateTime": null
+        }
+      ]
+    },
+    {
+      "name": "Lot McCann",
+      "mapFile": "mapMcCann.jpg",
+      "totalSpaces": 150,
+      "comments": "Near the Fitness Center. Tends to be full around 8PM.",
+      "location": "South Campus",
+      "operationalHours": "6 AM - Midnight",
+      "security": "CCTV monitored/Patrolled"
+    },
+    {
+      "name": "Lot Donnelly",
+      "mapFile": "mapDonnelly.jpg",
+      "totalSpaces": 60,
+      "comments": "Next to the round glass building. Best for Temp Parking.",
+      "location": "South Campus",
+      "operationalHours": "24/7",
+      "security": "CCTV monitored/Patrolled"
+    },
+    {
+      "name": "Lot Longview",
+      "mapFile": "mapLongview.jpg",
+      "totalSpaces": 120,
+      "comments": "On the hudson river, never full.",
+      "location": "East Campus",
+      "operationalHours": "8 AM - 8 PM",
+      "security": "Patrolled/Strict"
+    },
+    {
+      "name": "Lot NorthEnd",
+      "mapFile": "mapNorthEnd.jpg",
+      "totalSpaces": 50,
+      "comments": "Constantly packed, next to north end eating.",
+      "location": "North Campus",
+      "operationalHours": "24/7",
+      "security": "CCTV monitored/Patrolled"
+    },
+    {
+      "name": "Lot Beck",
+      "mapFile": "mapLotF.jpg",
+      "totalSpaces": 80,
+      "comments": "Lot of spots avalible, very sketchy",
+      "location": "Northeast Campus",
+      "operationalHours": "24/7",
+      "security": "Barely patrolled"
+    }
+  ]
+}
