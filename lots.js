@@ -13,14 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then((data) => {
             // Loop through and display each lot
-            data.lots.forEach((lot) => {
+            data.parkingLots.forEach((lot) => {
                 const listItem = document.createElement("li");
+
+                // Build HTML content for the lot
                 listItem.innerHTML = `
                     <strong>${lot.name}</strong><br>
-                    Spaces: ${lot.spaces}<br>
-                    Open Hours: ${lot.hours}<br>
-                    Location: ${lot.location}
+                    <img src="${lot.mapFile}" alt="Map of ${lot.name}" style="max-width: 100px; max-height: 100px;"><br>
+                    Total Spaces: ${lot.totalSpaces}<br>
+                    Location: ${lot.location}<br>
+                    Operational Hours: ${lot.operationalHours}<br>
+                    Security: ${lot.security}<br>
+                    Comments: ${lot.comments}<br>
+                    <a href="spaces.html?lot=${encodeURIComponent(lot.name)}">View Spaces</a>
                 `;
+
+                // Append the list item to the container
                 lotsContainer.appendChild(listItem);
             });
         })
