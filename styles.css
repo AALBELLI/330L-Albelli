@@ -12,7 +12,6 @@ body {
   line-height: 1.6;
 }
 
-
 header {
   background-color: #8B0000; 
   padding: 10px 20px;
@@ -34,38 +33,37 @@ header a:hover {
   border-radius: 5px;
 }
 
-
 nav {
   display: flex;
   justify-content: space-around;
   margin: 20px 0;
 }
 
-/* Container for Lots */
 .lots-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
+  padding: 20px;
 }
 
 .lot-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #8B0000; 
   border-radius: 10px;
   width: 300px;
   padding: 15px;
+  color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .lot-card h3 {
   font-size: 22px;
-  color: #8B0000;
+  margin-bottom: 10px;
 }
 
 .lot-card p {
   font-size: 14px;
-  color: #555;
+  margin-bottom: 10px;
 }
 
 .lot-card .lot-map {
@@ -79,13 +77,8 @@ nav {
   font-size: 12px;
 }
 
-.lot-card .lot-info .detail {
-  margin-bottom: 10px;
-}
-
 .lot-card .status {
   font-weight: bold;
-  color: green;
 }
 
 .lot-card .status.reserved {
@@ -128,33 +121,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.lot-card .lot-details {
-  margin-top: 10px;
-}
-
-.lot-card .lot-details p {
-  font-size: 14px;
-  color: #444;
-}
-
-.lot-card .lot-details .status {
-  color: #8B0000;
-  font-weight: bold;
-}
-
-.lot-card .lot-details .status.reserved {
-  color: orange;
-}
-
-.lot-card .lot-details .status.filled {
-  color: red;
-}
-
-.lot-card .lot-details .status.available {
-  color: green;
-}
-
-
+/* 404 Page */
 .page-404 {
   text-align: center;
   padding: 50px;
@@ -170,7 +137,6 @@ button:disabled {
   text-decoration: underline;
 }
 
-
 footer {
   background-color: #8B0000;
   color: white;
@@ -181,13 +147,3 @@ footer {
   bottom: 0;
 }
 
-
-
-  .lot-card {
-    width: 80%;
-  }
-
-  header {
-    text-align: left;
-    padding: 15px 20px;
-  }
