@@ -1,9 +1,6 @@
-// lots.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const lotsContainer = document.getElementById("lots-container");
 
-    // Fetch the JSON data
     fetch("parking.json")
         .then((response) => {
             if (!response.ok) {
@@ -12,28 +9,30 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then((data) => {
-            // Loop through and display each lot
-            data.parkingLots.forEach((lot) => {
-                const listItem = document.createElement("li");
+            if (data.parkingLots && data.parkingLots.length > 0) {
+                data.parkingLots.forEach((lot) => {
+                    const lotCard = document.createElement("div");
+                    lotCard.classList.add("lot-card");
 
-                // Build HTML content for the lot
-                listItem.innerHTML = `
-                    <strong>${lot.name}</strong><br>
-                    <img src="${lot.mapFile}" alt="Map of ${lot.name}" style="max-width: 100px; max-height: 100px;"><br>
-                    Total Spaces: ${lot.totalSpaces}<br>
-                    Location: ${lot.location}<br>
-                    Operational Hours: ${lot.operationalHours}<br>
-                    Security: ${lot.security}<br>
-                    Comments: ${lot.comments}<br>
-                    <a href="spaces.html?lot=${encodeURIComponent(lot.name)}">View Spaces</a>
-                `;
-
-                // Append the list item to the container
-                lotsContainer.appendChild(listItem);
-            });
+                    lotCard.innerHTML = `
+                        <h2>${lot.name}</h2>
+                        <img src="${lot.mapFile}" alt="Map of ${lot.name}" class="lot-map">
+                        <p><strong>Total Spaces:</strong> ${lot.totalSpaces}</p>
+                        <p><strong>Location:</strong> ${lot.location}</p>
+                        <p><strong>Operational Hours:</strong> ${lot.operationalHours}</p>
+                        <p><strong>Security:</strong> ${lot.security}</p>
+                        <p><strong>Comments:</strong> ${lot.comments}</p>
+                        <a href="spaces.html?lot=${encodeURIComponent(lot.name)}" class="view-spaces-link">View Spaces</a>
+                    `;
+                    
+                    lotsContainer.appendChild(lotCard);
+                });
+            } else {
+                lotsContainer.innerHTML = "<p>No parking lot data available.</p>";
+            }
         })
         .catch((error) => {
             console.error("Error fetching parking lots:", error);
-            lotsContainer.innerHTML = "<p>Failed to load parking lot data.</p>";
+            lotsContainer.innerHTML = "<p>Failed to load parking lot data. Please try again later.</p>";
         });
 });
