@@ -43,6 +43,14 @@ main {
     padding: 20px;
 }
 
+.main-lots {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    padding: 20px;
+    justify-items: center;
+}
+
 .lot-box {
     background-color: #f44336; 
     color: #f9f9f9; 
@@ -51,8 +59,9 @@ main {
     margin: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
 }
+
 
 .lot-box h3 {
     margin-top: 0;
