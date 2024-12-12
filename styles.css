@@ -1,37 +1,88 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: white;
-    color: red;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
+/* Header Styles */
 header {
-    background-color: red;
+    background-color: #c62828; /* Darker red */
     color: white;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 10px;
+    text-align: center;
 }
 
 header nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 30px; /* Space out the navigation links */
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
 }
 
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
 main {
     padding: 20px;
 }
 
-h1, h2, h3 {
-    color: red;
+/* Lot Boxes */
+.lot-box {
+    background-color: #f7b0b0; /* Lighter red background */
+    color: white; /* White text */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lot-box h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.lot-box p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Links in Lot Boxes */
+.lot-box a {
+    color: #c62828; /* Dark red link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.lot-box a:hover {
+    text-decoration: underline;
+}
+
+/* General Information Text */
+p, h2, h3 {
+    color: #333; /* Neutral dark gray for general text */
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 0;
 }
