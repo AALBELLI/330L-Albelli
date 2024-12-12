@@ -1,88 +1,194 @@
-/* General Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Header Styles */
+
 header {
-    background-color: #c62828; /* Darker red */
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: #8B0000; 
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
 }
 
-header h1 {
-    margin: 0;
+header a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 10px;
+  font-weight: bold;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    text-align: center;
+header a:hover {
+  background-color: #5a0000;
+  border-radius: 5px;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 30px; /* Space out the navigation links */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
+/* Container for Lots */
+.lots-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 }
 
-header nav ul li a:hover {
-    text-decoration: underline;
+.lot-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Main Content */
-main {
-    padding: 20px;
+.lot-card h3 {
+  font-size: 22px;
+  color: #8B0000;
 }
 
-/* Lot Boxes */
-.lot-box {
-    background-color: #f7b0b0; /* Lighter red background */
-    color: white; /* White text */
-    border-radius: 8px;
-    padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.lot-card p {
+  font-size: 14px;
+  color: #555;
 }
 
-.lot-box h3 {
-    margin-top: 0;
-    font-size: 24px;
+.lot-card .lot-map {
+  width: 100%;
+  height: 150px;
+  background-color: #e0e0e0;
+  margin-bottom: 15px;
 }
 
-.lot-box p {
-    margin: 5px 0;
-    font-size: 16px;
+.lot-card .lot-info {
+  font-size: 12px;
 }
 
-/* Links in Lot Boxes */
-.lot-box a {
-    color: #c62828; /* Dark red link */
-    text-decoration: none;
-    font-weight: bold;
+.lot-card .lot-info .detail {
+  margin-bottom: 10px;
 }
 
-.lot-box a:hover {
-    text-decoration: underline;
+.lot-card .status {
+  font-weight: bold;
+  color: green;
 }
 
-/* General Information Text */
-p, h2, h3 {
-    color: #333; /* Neutral dark gray for general text */
+.lot-card .status.reserved {
+  color: orange;
 }
 
-h2 {
-    font-size: 28px;
-    margin-top: 0;
+.lot-card .status.filled {
+  color: red;
+}
+
+.lot-card .status.available {
+  color: green;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #5a0000;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.lot-card .lot-details {
+  margin-top: 10px;
+}
+
+.lot-card .lot-details p {
+  font-size: 14px;
+  color: #444;
+}
+
+.lot-card .lot-details .status {
+  color: #8B0000;
+  font-weight: bold;
+}
+
+.lot-card .lot-details .status.reserved {
+  color: orange;
+}
+
+.lot-card .lot-details .status.filled {
+  color: red;
+}
+
+.lot-card .lot-details .status.available {
+  color: green;
+}
+
+
+.page-404 {
+  text-align: center;
+  padding: 50px;
+  font-size: 24px;
+}
+
+.page-404 a {
+  color: #8B0000;
+  text-decoration: none;
+}
+
+.page-404 a:hover {
+  text-decoration: underline;
+}
+
+
+footer {
+  background-color: #8B0000;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+
+
+  .lot-card {
+    width: 80%;
+  }
+
+  header {
+    text-align: left;
+    padding: 15px 20px;
+  }
 }
