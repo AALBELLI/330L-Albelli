@@ -18,36 +18,50 @@
             </ul>
         </nav>
     </header>
-    
 
     <main>
         <h2>Parking Spaces</h2>
-        <div id="spaces-list"></div>
+        
+        <table id="spaces-table">
+            <thead>
+                <tr>
+                    <th>Space ID</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Last Filled</th>
+                    <th>Reserved</th>
+                </tr>
+            </thead>
+            <tbody id="spaces-list">
+            </tbody>
+        </table>
     </main>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const lotName = params.get('lot');
+        const urlParams = new URLSearchParams(window.location.search);
+        const lotName = urlParams.get('lot');
 
-        fetch('parking.json')  // Assuming the parking.json file is at the root level
+        fetch('parking.json')
             .then(response => response.json())
             .then(data => {
-                const lot = data.parkingLots.find(l => l.name === lotName);
-                if (lot) {
-                    const spacesList = document.getElementById('spaces-list');
+                const spacesList = document.getElementById('spaces-list');
+
+                const lot = data.parkingLots.find(lot => lot.name === lotName);
+
+                if (lot && lot.spaces) {
                     lot.spaces.forEach(space => {
-                        const spaceItem = document.createElement('div');
-                        spaceItem.innerHTML = `
-                            <h3>Space ${space.spaceID}</h3>
-                            <p><strong>Type:</strong> ${space.type}</p>
-                            <p><strong>Status:</strong> ${space.status}</p>
-                            <p><strong>Reserved:</strong> ${space.reservedDateTime || 'Not reserved'}</p>
-                            <p><strong>Last Filled:</strong> ${space.lastFilledDateTime || 'Never filled'}</p>
+                        const spaceRow = document.createElement('tr');
+                        spaceRow.innerHTML = `
+                            <td>${space.spaceID}</td>
+                            <td>${space.type}</td>
+                            <td>${space.status}</td>
+                            <td>${space.lastFilledDateTime ? new Date(space.lastFilledDateTime).toLocaleString() : 'N/A'}</td>
+                            <td>${space.reservedDateTime ? new Date(space.reservedDateTime).toLocaleString() : 'N/A'}</td>
                         `;
-                        spacesList.appendChild(spaceItem);
+                        spacesList.appendChild(spaceRow);
                     });
                 } else {
-                    document.getElementById('spaces-list').innerHTML = "<p>Lot not found.</p>";
+                    spacesList.innerHTML = '<tr><td colspan="5">No spaces available for this lot.</td></tr>';
                 }
             });
     </script>
