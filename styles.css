@@ -191,3 +191,33 @@ footer p {
     font-weight: normal;
     color: white; 
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #c62828;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+table tbody tr:hover {
+    background-color: #f7b0b0;
+}
+
