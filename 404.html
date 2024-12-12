@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Error</title>
+    <title>404 - Page Not Found</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Parking App</h1>
+    <header class="site-header">
         <nav>
             <ul>
                 <li><a href="parking.html">Home</a></li>
@@ -18,11 +17,12 @@
             </ul>
         </nav>
     </header>
-    
 
-    <main>
-        <h2>404 Error - Page Not Found</h2>
-        <p>The page you're looking for does not exist.</p>
-    </main>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! The page you're looking for does not exist.</p>
+        <p class="suggestion">It may have been moved or deleted.</p>
+        <a href="parking.html" class="back-home">Go Back Home</a>
+    </div>
 </body>
 </html>
