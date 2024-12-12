@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spaces</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Parking App</h1>
+        <nav>
+            <ul>
+                <li><a href="parking.html">Home</a></li>
+                <li><a href="lots.html">Lots</a></li>
+                <li><a href="spaces.html">Spaces</a></li>
+                <li><a href="404.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <h2>Parking Spaces</h2>
+        <div id="spaces-list"></div>
+    </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const lotName = params.get('lot');
+
+        fetch('parking.json')  // Assuming the parking.json file is at the root level
+            .then(response => response.json())
+            .then(data => {
+                const lot = data.parkingLots.find(l => l.name === lotName);
+                if (lot) {
+                    const spacesList = document.getElementById('spaces-list');
+                    lot.spaces.forEach(space => {
+                        const spaceItem = document.createElement('div');
+                        spaceItem.innerHTML = `
+                            <h3>Space ${space.spaceID}</h3>
+                            <p><strong>Type:</strong> ${space.type}</p>
+                            <p><strong>Status:</strong> ${space.status}</p>
+                            <p><strong>Reserved:</strong> ${space.reservedDateTime || 'Not reserved'}</p>
+                            <p><strong>Last Filled:</strong> ${space.lastFilledDateTime || 'Never filled'}</p>
+                        `;
+                        spacesList.appendChild(spaceItem);
+                    });
+                } else {
+                    document.getElementById('spaces-list').innerHTML = "<p>Lot not found.</p>";
+                }
+            });
+    </script>
+</body>
+</html>

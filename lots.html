@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lots</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Parking App</h1>
+        <nav>
+            <ul>
+                <li><a href="parking.html">Home</a></li>
+                <li><a href="lots.html">Lots</a></li>
+                <li><a href="spaces.html">Spaces</a></li>
+                <li><a href="404.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <h2>Parking Lots</h2>
+        <div id="lots-list"></div>
+    </main>
+
+    <script>
+        fetch('parking.json')  // Assuming the parking.json file is at the root level
+            .then(response => response.json())
+            .then(data => {
+                const lotsList = document.getElementById('lots-list');
+                data.parkingLots.forEach(lot => {
+                    const lotItem = document.createElement('div');
+                    lotItem.innerHTML = `
+                        <h3>${lot.name}</h3>
+                        <p><strong>Location:</strong> ${lot.location}</p>
+                        <p><strong>Operational Hours:</strong> ${lot.operationalHours}</p>
+                        <p><strong>Security:</strong> ${lot.security}</p>
+                        <p><strong>Comments:</strong> ${lot.comments}</p>
+                        <a href="spaces.html?lot=${lot.name}">View Spaces</a>
+                    `;
+                    lotsList.appendChild(lotItem);
+                });
+            });
+    </script>
+</body>
+</html>
