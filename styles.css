@@ -280,7 +280,6 @@ table tbody tr:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    display: inline-block;
     padding: 10px 20px;
     background-color: #e74c3c;
     color: white;
